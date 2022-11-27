@@ -1,0 +1,1 @@
+from master_module.master import Master
