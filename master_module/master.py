@@ -1,8 +1,8 @@
 # Created by Manuel Staufer [2022] Rights Reserved
 
 
-""" IMPORT MODULES """
 from enum import Enum
+from addons.console import ConsoleStyle, getStyle
 import socket, time, asyncio, uuid
 
 
@@ -26,4 +26,4 @@ class Master:
 
 if __name__ == '__main__':
     m = Master()
-    print(m.getUUID())
+    print(f'{getStyle(ConsoleStyle.GRAY)}UUID: {getStyle(ConsoleStyle.RED) + m.getUUID()}')

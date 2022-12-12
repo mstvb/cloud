@@ -1,7 +1,6 @@
 # Created by Manuel Staufer [2022] Rights Reserved
 
 
-""" IMPORT MODULES """
 from enum import Enum
 import socket, time, asyncio, uuid
 
@@ -13,17 +12,31 @@ class WrapperType(Enum):
 
 class Wrapper:
     def __init__(self, wrapper_type: WrapperType, maxUsers):
-        self.wrapper_uuid = uuid.uuid4()
-        self.wrapper_type = wrapper_type
-        self.maxUsers = maxUsers
+        self.json = {
+            "uuid": uuid.uuid4(),
+            "wrapper_type": wrapper_type,
+            "maxUsers": maxUsers
+        }
+
+
+    def setType(self, wrapper_type: WrapperType):
+        self.json['wrapper_type'] = wrapper_type
+
+
+    def setMaxUsers(self, maxUsers):
+        self.json['maxUsers'] = maxUsers
 
 
     def getType(self):
-        return self.wrapper_type.value
+        return str(self.json['wrapper_type'].value)
 
 
     def getUUID(self):
-        return str(self.wrapper_uuid)
+        return str(self.json['uuid'])
+
+
+    def getMaxUsers(self):
+        return int(self.json['maxUsers'])
 
 
 if __name__ == '__main__':
