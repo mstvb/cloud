@@ -7,10 +7,7 @@ import uuid
 
 class User:
     def __init__(self, username: str, password: str):
-        self.json = {"username": username,
-                     "pass": password,
-                     "uuid": uuid.uuid4()
-                    }
+        self.json = {'username': username, 'pass': password, 'uuid': uuid.uuid4()}
         self.permissions = []
 
 
